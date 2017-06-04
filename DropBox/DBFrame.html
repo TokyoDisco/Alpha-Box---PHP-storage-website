@@ -1,0 +1,83 @@
+
+<html>
+	<head>
+		<title> Drop Box </title>
+	
+	<link rel="stylesheet" type="text/css" href="stylesheet.css" />
+
+	<script type="text/javascript" src="ajax.js"></script>
+	<script type="text/javascript" src="browser.js"></script>
+	<script type="text/javascript">
+
+        
+function search(){
+	document.getElementById("pCurrentPath").innerHTML="Loading...";
+	var p=document.getElementById("hdnCurrentPath").value;
+	var a=new Ajax();
+	with (a){
+		Method="POST";
+		URL="core.php";
+		Data="path="+p+"&filter="+document.getElementById("txtFilter").value;
+		ResponseFormat="json";
+		ResponseHandler=showFiles;
+		Send();
+	}
+}
+
+function showFiles(res){
+	var p=document.getElementById("hdnCurrentPath").value;
+	document.getElementById("pCurrentPath").innerHTML=p;
+	document.getElementById("dvContents").innerHTML="";
+	
+	var oddeven="odd";
+	for (i=0;i<res.length;i++){
+		var f=res[i];
+		var el=document.createElement("p");
+		el.setAttribute("fPath",f.fPath);
+		el.setAttribute("fType",f.fType);
+		el.className=oddeven;
+		el.innerHTML="<span class='icon ft_"+f.fType+"'>&nbsp;</span>"+f.fName;
+		document.getElementById("dvContents").appendChild(el);
+		oddeven=(oddeven=="odd")?"even":"odd";
+		el.onclick=selectItem;
+	}
+}
+
+function selectItem(){
+	var ftype=this.getAttribute("fType");
+	if(ftype=="folder"){
+		document.getElementById("hdnCurrentPath").value=this.getAttribute("fPath");
+		search();
+	}else{
+		alert("File Path: " + this.getAttribute("fPath")+"\n\nFile Type: "+ this.getAttribute("fType"));
+	}
+}
+
+</script>
+</head>
+<body onload="search()">
+<div class="browser">
+	<p class="pfilter">File types filter
+		<input type="text" id="txtFilter" value="" />
+		<input type="button" value="Refresh" onclick="search()" />
+		<input type="hidden" id="hdnCurrentPath" value="" />
+	</p>
+	<p id="pCurrentPath">Loading...</p>
+	<div id="dvContents">&nbsp;</div>
+</div>
+</body>
+</html>
+
+
+
+
+						
+						
+						
+						
+						
+						
+						
+		
+					
+				

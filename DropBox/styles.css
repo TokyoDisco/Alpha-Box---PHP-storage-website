@@ -1,0 +1,99 @@
+.browser{
+position:relative;
+padding:0px;
+display:block;
+margin:0px;
+width:350px;
+height:300px;
+border:1px solid #888888;
+}
+
+.pfilter{
+padding:0px;
+margin:0px;
+height:30px;
+}
+
+#pCurrentPath{
+padding:0px;
+margin:0px;
+width:100%;
+height:20px;
+background-color:#666666;
+color:#FFFFFF;
+}
+
+#dvContents{
+padding:0px;
+margin:0px;
+width:100%;
+height:250px;
+overflow:auto;
+white-space:nowrap;
+word-break:none;
+}
+
+#dvContents p{
+padding:3px 0px;
+margin:0px;
+line-height:16px;
+vertical-align:middle;
+cursor:pointer;
+}
+
+#dvContents p:hover{
+background-color:yellow;
+}
+
+.icon{
+margin:0px 4px 0px 0px;
+display:inline-block;
+width:16px;
+height:16px;
+background:transparent url(./images/page_white.png) no-repeat;
+vertical-align:middle;
+}
+
+.odd{
+background-color:#EEEEEE;
+}
+
+.even{
+background-color:#DDDDDD;
+}
+
+.icon.ft_folder{
+background:transparent url(./images/folder.png) no-repeat;
+}
+
+.icon.ft_pdf{
+background:transparent url(./images/page_white_acrobat.png) no-repeat;
+}
+
+.icon.ft_cs{
+background:transparent url(./images/page_white_csharp.png) no-repeat;
+}
+
+.icon.ft_xsl{
+background:transparent url(./images/page_white_excel.png) no-repeat;
+}
+
+.icon.ft_swf{
+background:transparent url(./images/page_white_flash.png) no-repeat;
+}
+
+.icon.ft_php{
+background:transparent url(./images/page_white_php.png) no-repeat;
+}
+
+.icon.ft_png,.icon.ft_jpg,.icon.ft_bmp,.icon.ft_gif{
+background:transparent url(./images/page_white_picture.png) no-repeat;
+}
+
+.icon.ft_txt, .icon.ft_js, .icon.ft_css{
+background:transparent url(./images/page_white_text.png) no-repeat;
+}
+
+.icon.ft_htm, .icon.ft_html{
+background:transparent url(./images/page_white_code.png) no-repeat;
+}
